@@ -9,9 +9,11 @@
             </vg-scrub-bar>
             <vg-controls>
                 <vg-play-pause></vg-play-pause>
-                <img src="./../../assets/images/rewind.png" style="cursor:pointer;margin-top: 17.5px;" width="20px" height="15px" alt="" (click)="rewind(pl)">
+                <img src="./../../assets/images/rewind.png" style="cursor:pointer;margin-top: 17.5px;" width="20px"
+                    height="15px" alt="" (click)="rewind(pl)">
                 <vg-playback-button></vg-playback-button>
-                <img src="./../../assets/images/forword.png" style="cursor:pointer;margin-top: 17.5px;" width="20px" height="15px" alt="" (click)="forword(pl)">
+                <img src="./../../assets/images/forword.png" style="cursor:pointer;margin-top: 17.5px;" width="20px"
+                    height="15px" alt="" (click)="forword(pl)">
                 <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
                 <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
                 <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
@@ -21,7 +23,7 @@
                 <vg-volume></vg-volume>
                 <vg-fullscreen></vg-fullscreen>
             </vg-controls>
-            <video [vgMedia]="$any(media)" #media id="singleVideo" preload="auto" crossorigin  [src]="currentVideo.src">
+            <video [vgMedia]="$any(media)" #media id="singleVideo" preload="auto" crossorigin [src]="currentVideo.src">
                 <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
                 <source src="http://static.videogular.com/assets/videos/videogular.ogg" type="video/ogg">
                 <source src="http://static.videogular.com/assets/videos/videogular.webm" type="video/webm">
