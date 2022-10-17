@@ -24,9 +24,8 @@
                 <vg-fullscreen></vg-fullscreen>
             </vg-controls>
             <video [vgMedia]="$any(media)" #media id="singleVideo" preload="auto" crossorigin [src]="currentVideo.src">
-                <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
-                <source src="http://static.videogular.com/assets/videos/videogular.ogg" type="video/ogg">
-                <source src="http://static.videogular.com/assets/videos/videogular.webm" type="video/webm">
+                <source src="{{startVideo}}" type="video/mp4">
+
                 <track kind="subtitles" label="English" src="http://static.videogular.com/assets/subs/pale-blue-dot.vtt"
                     srclang="en" default>
                 <track kind="subtitles" label="Español"

@@ -18,7 +18,7 @@ import { MatGridListModule } from '@angular/material/grid-list'
 import { MatNativeDateModule } from '@angular/material/core';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,8 @@ import { CommonModule } from '@angular/common';
     MatDatepickerModule,
     MatNativeDateModule,
     MatGridListModule,
-    CdkAccordionModule
+    CdkAccordionModule,
+    FormsModule
   ],
   exports: [
     MatExpansionModule,
