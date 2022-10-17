@@ -1,0 +1,30 @@
+.allVideo {
+    display: flex;
+    max-width: 1500px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+.video-player-wrapper {
+    width: 72.5%;
+    height: 500px;
+    text-align: left;
+}
+.player-list {
+   margin: 0;
+   padding: 0;
+}
+.player-list li {
+   list-style: none;
+   padding: 15px 35px;
+   display: block;
+   background: #cccc;
+   cursor: pointer;
+   text-align: left;
+   margin-bottom: 1px;
+}
+li.selected {
+    background: #47f403 !important;
+}
+
+.next-video {
+    width: 27.5%;
+}

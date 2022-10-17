@@ -1,0 +1,78 @@
+<div class="allVideo">
+    <div class="video-player-wrapper">
+        <vg-player #pl (onPlayerReady)="videoPlayerInit($event)">
+            <vg-overlay-play></vg-overlay-play>
+            <vg-buffering></vg-buffering>
+            <vg-scrub-bar>
+                <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+            </vg-scrub-bar>
+            <vg-controls>
+                <vg-play-pause></vg-play-pause>
+                <img src="./../../assets/images/rewind.png" style="cursor:pointer;margin-top: 17.5px;" width="20px" height="15px" alt="" (click)="rewind(pl)">
+                <vg-playback-button></vg-playback-button>
+                <img src="./../../assets/images/forword.png" style="cursor:pointer;margin-top: 17.5px;" width="20px" height="15px" alt="" (click)="forword(pl)">
+                <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+                <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
+                <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+                <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+                <vg-track-selector></vg-track-selector>
+                <vg-mute></vg-mute>
+                <vg-volume></vg-volume>
+                <vg-fullscreen></vg-fullscreen>
+            </vg-controls>
+            <video [vgMedia]="$any(media)" #media id="singleVideo" preload="auto" crossorigin  [src]="currentVideo.src">
+                <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                <source src="http://static.videogular.com/assets/videos/videogular.ogg" type="video/ogg">
+                <source src="http://static.videogular.com/assets/videos/videogular.webm" type="video/webm">
+                <track kind="subtitles" label="English" src="http://static.videogular.com/assets/subs/pale-blue-dot.vtt"
+                    srclang="en" default>
+                <track kind="subtitles" label="Español"
+                    src="http://static.videogular.com/assets/subs/pale-blue-dot-es.vtt" srclang="es">
+            </video>
+        </vg-player>
+    </div>
+    <div class="next-video" *ngIf="sideBarShow">
+        <div style="padding:20px;padding-bottom:35px;border-bottom:1px solid grey">
+            <div style="float:left; width: 95%;">
+                Course content
+            </div>
+            <div style="float: right;width: 5%;">
+                <img src="./../../assets/images/crossIcon.jpg" width="15px" alt="">
+            </div>
+        </div>
+        <mat-accordion>
+            <mat-expansion-panel style="border-bottom:1px solid grey" *ngFor="let link of allVideo">
+                <mat-expansion-panel-header style="padding:20px;background-color:#f7f9fa;">
+                    <mat-panel-title>
+                        <div style="display: block;">
+                            <div>
+                                <h4>{{link.title}}</h4>
+                            </div>
+                            <div style="padding: 2px;">
+                                <label style="font-size: 12px;">{{link.video}} {{link.totalTime}}</label>
+                            </div>
+                        </div>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div style="display: flex;padding:10px;" *ngFor="let vlink of link.children; let $index = index"
+                    (click)="startPlaylistVdo(vlink, $index)" [class.selected]="vlink.index === currentVideo">
+                    <div style="width: 20%;">
+                        <input type="checkbox" name="video" id="video">
+                    </div>
+                    <div style="width: 80%;">
+                        <div style="display: block;">
+                            <div>
+                                <p>{{vlink.text}}</p>
+                            </div>
+                            <div style="padding: 5px;">
+                                <label style="font-size: 12px;"><img src="./../../assets/images/videoPlay.png"
+                                        width="12px" alt=""> {{vlink.time}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</div>
